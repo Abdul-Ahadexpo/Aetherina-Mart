@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" class="english">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Set Management</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .collapse-content {
+      display: none;
+      /* Initially hide the content */
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100">
+  <!-- Header Section -->
+  <header class="bg-blue-600 text-white p-4 text-center">
+    <h1 id="header-title" class="text-2xl font-bold">Order Set and Product Management Guide</h1>
+    <p id="header-description" class="mt-2">Learn how to manage your order sets, add products, and track profit/loss</p>
+    <button onclick="toggleLanguage()" class="mt-4 bg-white text-blue-600 px-4 py-2 rounded">Switch Language
+      English/Bangla</button>
+  </header>
+
+  <!-- Main Content Section -->
+  <main class="p-4">
+    <div class="space-y-4">
+      <!-- Overview Section -->
+      <div class="bg-white rounded-lg shadow-lg p-4">
+        <h2 id="overview-title" class="text-xl font-semibold">Overview of Features</h2>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded"
+          onclick="toggleCollapse('overview-content')">Overview</button>
+        <div id="overview-content" class="collapse-content mt-2">
+          <p id="overview-description" class="mt-2">This website allows you to manage up to 11 different order sets, add
+            products to each set, calculate profit/loss, and store all the information locally so that your data
+            persists between visits.</p>
+        </div>
+      </div>
+
+      <!-- Getting Started Section -->
+      <div class="bg-white rounded-lg shadow-lg p-4">
+        <h2 id="getting-started-title" class="text-xl font-semibold">1. Getting Started</h2>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded"
+          onclick="toggleCollapse('getting-started-content')">Getting Started</button>
+        <div id="getting-started-content" class="collapse-content mt-2">
+          <p id="getting-started-description1" class="mt-2"><strong>Selecting an Order Set:</strong> Use the dropdown to
+            select a set (1–11). Each set represents a different group of products or an order batch.</p>
+          <p id="getting-started-description2" class="mt-2"><strong>Entering Set Cost:</strong> After selecting the
+            order set, enter the cost of the entire set in the input field provided.</p>
+          <p id="getting-started-description3" class="mt-2"><strong>Saving Set:</strong> Click the "Save Set" button to
+            store the information in local storage. You can view and manage this set later.</p>
+        </div>
+      </div>
+
+      <!-- Managing Products Section -->
+      <div class="bg-white rounded-lg shadow-lg p-4">
+        <h2 id="managing-products-title" class="text-xl font-semibold">2. Managing Products in Each Set</h2>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded"
+          onclick="toggleCollapse('managing-products-content')">Managing Products</button>
+        <div id="managing-products-content" class="collapse-content mt-2">
+          <p id="adding-products-description" class="mt-2"><strong>Adding Products:</strong> For each order set, you can
+            add individual products by entering the name, cost, and sold price of the product. Click "Save Product" to
+            add the product to the order set.</p>
+          <p id="product-collapse-description" class="mt-2">Product Collapse: Each product added will be displayed in a
+            collapsible section for easier management and editing.</p>
+        </div>
+      </div>
+
+      <!-- Profit and Loss Section -->
+      <div class="bg-white rounded-lg shadow-lg p-4">
+        <h2 id="profit-loss-title" class="text-xl font-semibold">3. Profit and Loss Calculation</h2>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="toggleCollapse('profit-loss-content')">
+          Profit and Loss</button>
+        <div id="profit-loss-content" class="collapse-content mt-2">
+          <p id="automatic-calculation-description" class="mt-2"><strong>Automatic Calculation:</strong> Profit and loss
+            are calculated based on the total cost and the total sold price of the products in each set. The formula
+            used is:</p>
+          <p id="formula" class="font-mono text-lg">Profit/Loss = Total Sold Price - Total Product Costs</p>
+        </div>
+      </div>
+
+      <!-- Saving Persistence Section -->
+      <div class="bg-white rounded-lg shadow-lg p-4">
+        <h2 id="saving-persistence-title" class="text-xl font-semibold">4. Saving and Persistence</h2>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded"
+          onclick="toggleCollapse('saving-persistence-content')">Saving and Persistence</button>
+        <div id="saving-persistence-content" class="collapse-content mt-2">
+          <p id="saving-persistence-description">All your sets and products are stored in your browser's local storage.
+            This means that even if you refresh the page or close your browser, your data will still be there when you
+            return.</p>
+        </div>
+      </div>
+
+      <!-- FAQs Section -->
+      <div class="bg-white rounded-lg shadow-lg p-4">
+        <h2 id="faqs-title" class="text-xl font-semibold">5. FAQs & Troubleshooting</h2>
+
+        <div class="mt-4">
+          <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="toggleCollapse('faq1')">FAQ
+            1</button>
+          <div id="faq1" class="collapse-content mt-2">
+            <p id="faq1-question"><strong>Q: Why is my data not saved after refreshing the page?</strong></p>
+            <p id="faq1-answer">Ensure that your browser allows local storage and hasn't cleared its data recently. If
+              local storage is disabled, data will not persist.</p>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="toggleCollapse('faq2')"> FAQ
+            2</button>
+          <div id="faq2" class="collapse-content mt-2">
+            <p id="faq2-question"><strong>Q: Can I edit products after adding them?</strong></p>
+            <p id="faq2-answer">Currently, products cannot be edited once saved. You would need to remove them and add a
+              new one.</p>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="toggleCollapse('faq3')">FAQ
+            3</button>
+          <div id="faq3" class="collapse-content mt-2">
+            <p id="faq3-question"><strong>Q: What if the profit/loss isn't displaying?</strong></p>
+            <p id="faq3-answer">Make sure you’ve added at least one product with valid cost and sold price values.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="bg-blue-600 text-white p-4 text-center">
+    <p>&copy; 2024 Aetherina Mart. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Room for your script -->
+  <script>
+    // Function to toggle between English and Bangla
+    function toggleLanguage() {
+      const isEnglish = document.body.classList.toggle('english');
+      const elementsToTranslate = {
+        'header-title': isEnglish ? 'Order Set and Product Management Guide' : 'অর্ডার সেট এবং পণ্য ব্যবস্থাপনা গাইড',
+        'header-description': isEnglish ? 'Learn how to manage your order sets, add products, and track profit/loss' : 'আপনার অর্ডার সেট পরিচালনা করা, পণ্য যোগ করা এবং লাভ/ক্ষতি ট্র্যাক করার জন্য শিখুন',
+        'overview-title': isEnglish ? 'Overview of Features' : 'ফিচারের সারসংক্ষেপ',
+        'overview-description': isEnglish ? 'This website allows you to manage up to 11 different order sets, add products to each set, calculate profit/loss, and store all the information locally so that your data persists between visits.' : 'এই ওয়েবসাইটটি আপনাকে 11টি ভিন্ন অর্ডার সেট পরিচালনা করতে, প্রতিটি সেটে পণ্য যোগ করতে, লাভ/ক্ষতি গণনা করতে এবং আপনার ডেটা সংরক্ষণ করতে দেয় যাতে আপনার ডেটা পরিদর্শনের মধ্যে স্থায়ী হয়।',
+        'getting-started-title': isEnglish ? '1. Getting Started' : '১. শুরু করা',
+        'getting-started-description1': isEnglish ? 'Selecting an Order Set: Use the dropdown to select a set (1–11). Each set represents a different group of products or an order batch.' : 'অর্ডার সেট নির্বাচন: একটি সেট (১-১১) নির্বাচন করতে ড্রপডাউন ব্যবহার করুন। প্রতিটি সেট বিভিন্ন পণ্যের একটি গ্রুপ বা একটি অর্ডার ব্যাচ প্রতিনিধিত্ব করে।',
+        'getting-started-description2': isEnglish ? 'Entering Set Cost: After selecting the order set, enter the cost of the entire set in the input field provided.' : 'সেটের খরচ প্রবেশ করানো: অর্ডার সেট নির্বাচন করার পরে, প্রদত্ত ইনপুট ক্ষেত্রের মধ্যে পুরো সেটের খরচ লিখুন।',
+        'getting-started-description3': isEnglish ? 'Saving Set: Click the "Save Set" button to store the information in local storage. You can view and manage this set later.' : 'সেট সংরক্ষণ করা: তথ্য স্থানীয়ভাবে সংরক্ষণ করতে "সেট সংরক্ষণ করুন" বোতামে ক্লিক করুন। আপনি পরে এই সেটটি দেখতে এবং পরিচালনা করতে পারেন।',
+        'managing-products-title': isEnglish ? '2. Managing Products in Each Set' : '২. প্রতিটি সেটে পণ্যের পরিচালনা',
+        'adding-products-description': isEnglish ? 'Adding Products: For each order set, you can add individual products by entering the name, cost, and sold price of the product. Click "Save Product" to add the product to the order set.' : 'পণ্য যোগ করা: প্রতিটি অর্ডার সেটের জন্য, আপনি পণ্যের নাম, খরচ এবং বিক্রিত মূল্য লিখে পৃথক পণ্য যোগ করতে পারেন। অর্ডার সেটে পণ্য যোগ করতে "পণ্য সংরক্ষণ করুন" বোতামে ক্লিক করুন।',
+        'product-collapse-description': isEnglish ? 'Product Collapse: Each product added will be displayed in a collapsible section for easier management and editing.' : 'পণ্যের সংকোচন: প্রতিটি যোগ করা পণ্যকে সহজ ব্যবস্থাপনা ও সম্পাদনার জন্য একটি সংকোচনযোগ্য বিভাগে প্রদর্শন করা হবে।',
+        'profit-loss-title': isEnglish ? '3. Profit and Loss Calculation' : '৩. লাভ এবং ক্ষতির হিসাব',
+        'automatic-calculation-description': isEnglish ? 'Automatic Calculation: Profit and loss are calculated based on the total cost and the total sold price of the products in each set. The formula used is:' : 'স্বয়ংক্রিয় হিসাব: প্রতিটি সেটে পণ্যের মোট খরচ এবং মোট বিক্রির মূল্যের ভিত্তিতে লাভ এবং ক্ষতি গণনা করা হয়। ব্যবহৃত সূত্র হল:',
+        'formula': isEnglish ? 'Profit/Loss = Total Sold Price - Total Product Costs' : 'লাভ/ক্ষতি = মোট বিক্রির মূল্য - মোট পণ্যের খরচ',
+        'saving-persistence-title': isEnglish ? '4. Saving and Persistence' : '৪. সংরক্ষণ এবং স্থায়িত্ব',
+        'saving-persistence-description': isEnglish ? 'All your sets and products are stored in your browser\'s local storage. This means that even if you refresh the page or close your browser, your data will still be there when you return.' : 'আপনার সমস্ত সেট এবং পণ্য আপনার ব্রাউজারের স্থানীয় সংরক্ষণে সংরক্ষিত হয়। এর মানে হল যে আপনি যদি পৃষ্ঠা রিফ্রেশ করেন বা আপনার ব্রাউজার বন্ধ করেন তবে আপনার ডেটা ফিরে আসার সময় সেখানে থাকবে।',
+        'faqs-title': isEnglish ? '5. FAQs & Troubleshooting' : '৫. সাধারণ জিজ্ঞাসা ও সমস্যা সমাধান',
+        'faq1-question': isEnglish ? 'Q: Why is my data not saved after refreshing the page?' : 'প্রশ্ন: পৃষ্ঠা রিফ্রেশ করার পরে আমার ডেটা কেন সংরক্ষিত হয়নি?',
+        'faq1-answer': isEnglish ? 'Ensure that your browser allows local storage and hasn\'t cleared its data recently. If local storage is disabled, data will not persist.' : 'নিশ্চিত করুন যে আপনার ব্রাউজার স্থানীয় সংরক্ষণ করতে অনুমতি দেয় এবং সম্প্রতি এর ডেটা মুছে দেয়নি। যদি স্থানীয় সংরক্ষণ নিষ্ক্রিয় থাকে তবে ডেটা স্থায়ী হবে না।',
+        'faq2-question': isEnglish ? 'Q: Can I edit products after adding them?' : 'প্রশ্ন: আমি কি পণ্য যোগ করার পরে সেগুলি সম্পাদনা করতে পারি?',
+        'faq2-answer': isEnglish ? 'Currently, products cannot be edited once saved. You would need to remove them and add a new one.' : 'বর্তমানে, একবার সংরক্ষিত হলে পণ্যগুলি সম্পাদনা করা যাবে না। আপনাকে সেগুলি সরাতে হবে এবং একটি নতুন যোগ করতে হবে।',
+        'faq3-question': isEnglish ? 'Q: What if the profit/loss isn\'t displaying?' : 'প্রশ্ন: লাভ/ক্ষতি প্রদর্শিত না হলে কি হবে?',
+        'faq3-answer': isEnglish ? 'Make sure you’ve added at least one product with valid cost and sold price values.' : 'নিশ্চিত করুন যে আপনি অন্তত একটি পণ্য যুক্ত করেছেন যার বৈধ খরচ এবং বিক্রির মূল্য রয়েছে।',
+      };
+
+      for (const [key, value] of Object.entries(elementsToTranslate)) {
+        document.getElementById(key).innerText = value;
+      }
+    }
+  </script>
+
+  <script>
+    // Function to toggle collapse
+    function toggleCollapse(id) {
+      const content = document.getElementById(id);
+      if (content.style.display === "none" || content.style.display === "") {
+        content.style.display = "block";
+      } else {
+        content.style.display = "none";
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CFO Dashboard</title>
+  <script defer src="script.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.14.1/dist/full.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/5fc4420cfa.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      padding: 20px;
+    }
+
+    /* Responsive Design */
+    .container {
+      border: 2px solid transparent;
+      display: flex;
+      width: 800px !important;
+      margin: 0 auto;
+      height: auto;
+      margin-top: 30px;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .set-collapse {
+      margin-top: 10px;
+      background-color: #f4f4f9;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .set-summary {
+      font-weight: bold;
+    }
+
+    .product-inputs {
+      margin-top: 10px;
+    }
+
+    .product-inputs input {
+      margin-bottom: 10px;
+    }
+
+    .profit-loss {
+      font-weight: bold;
+      color: #1a202c;
+      margin-top: 10px;
+    }
+
+    @media screen and (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+
+      .container {
+        gap: 15px;
+        width: auto !important;
+      }
+
+      .set-collapse {
+        padding: 10px;
+      }
+
+      .product-inputs input {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 class="text-2xl font-bold text-center flex items-center justify-center">
+    CFO Dashboard
+    <a href="about.html" class="ml-2 text-blue-600 hover:text-blue-800" title="About">
+      <i class="fas fa-question-circle"></i>
+    </a>
+  </h1>
+
+  <div class="container">
+    <div class="flex flex-col gap-4">
+      <!-- Select OrderSet -->
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Select Order Set</span>
+        </label>
+        <select id="orderSetSelect" class="select select-bordered">
+          <option disabled selected>Pick a set</option>
+          <option>Set 1</option>
+          <option>Set 2</option>
+          <option>Set 3</option>
+          <!-- Add up to Set 11 -->
+        </select>
+      </div>
+
+      <!-- Input Set Cost -->
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Set Cost</span>
+        </label>
+        <input type="number" id="setCostInput" class="input input-bordered" placeholder="Enter set cost">
+      </div>
+
+      <!-- Save Set Button -->
+      <button id="saveSetBtn" class="btn btn-primary">Save Set</button>
+    </div>
+
+    <!-- Collapsibles for Order Sets -->
+    <div id="setsContainer" class="mt-6 space-y-4">
+      <!-- Collapses will appear here -->
+    </div>
+  </div>
+  <!-- Footer Section -->
+  <footer class="bg-blue-600 text-white p-4 text-center inset-x-0 bottom-0 ft">
+    <p>&copy; 2024 Aetherina Mart. All Rights Reserved.</p>
+  </footer>
+  <style>
+    .ft {
+      display: none;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .ft {
+        display: block;
+        position: relative;
+        top: 420px;
+      }
+    }
+  </style>
+</body>
+
+</html>
